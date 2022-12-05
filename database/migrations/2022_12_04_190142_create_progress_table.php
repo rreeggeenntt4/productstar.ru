@@ -13,7 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('progress', function (Blueprint $table) {
+            $table->id();
+            $table->integer("user_id");
+            $table->integer("lesson_id");
+            $table->timestamp('created_at', $precision = 0);
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('progress');
     }
 };
